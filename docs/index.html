@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Real-time video diffusion on one GPU - latency and timing control</title>
+<meta name="description" content="Where a streaming video DiT spends its time on A100, and forward-only control of when an object appears in Wan2.1 / Self-Forcing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0} img{max-width:100%}
+
+:root{
+  --ground:#F3F4F1; --surface:#FFFFFF; --ink:#16191B; --muted:#5D666B; --line:#D8DCD6;
+  --on:#0E7C66; --on-soft:#CFE9E1; --off:#E4E7E2; --b0:#6B7378; --chip:#EEF1EC; --head:#16191B;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0F1213; --surface:#161A1C; --ink:#E6EAE7; --muted:#97A19E; --line:#2A3133;
+  --on:#3CC2A0; --on-soft:#173A32; --off:#22282A; --b0:#9AA3A8; --chip:#1D2325; --head:#E6EAE7; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --ground:#0F1213; --surface:#161A1C; --ink:#E6EAE7; --muted:#97A19E; --line:#2A3133;
+  --on:#3CC2A0; --on-soft:#173A32; --off:#22282A; --b0:#9AA3A8; --chip:#1D2325; --head:#E6EAE7; color-scheme:dark;}
+body{background:var(--ground);color:var(--ink);font:400 15px/1.55 var(--body);}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:40px 64px;}
+header{display:grid;gap:14px;max-width:760px;margin-bottom:28px}
+h1{font:700 clamp(30px,5vw,46px)/1.05 var(--display);letter-spacing:-.01em;margin:0;color:var(--head);text-wrap:balance}
+.lede{color:var(--muted);margin:0;max-width:65ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:22px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:6px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);
+  display:flex;gap:4px;flex-wrap:wrap;padding-block:10px;margin-bottom:8px}
+nav a{font:500 13px/1 var(--body);color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:999px}
+nav a:hover,nav a:focus-visible{color:var(--ink);background:var(--chip);outline:none}
+section{padding-top:28px;scroll-margin-top:56px}
+h2{font:600 22px/1.2 var(--display);margin:0 0 4px}
+.sec-note{color:var(--muted);margin:0 0 18px;font-size:14px;max-width:70ch}
+.ex{border-top:1px solid var(--line);padding-block:22px;display:grid;gap:12px}
+.ex-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
+.ex-label{font:600 15px/1.3 var(--body)}
+.src{font:400 12px/1.3 var(--mono);color:var(--muted)}
+.prompt{margin:0;font-size:14px;color:var(--ink);max-width:90ch}
+.prompt b{font-weight:600;color:var(--on)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.pair{grid-template-columns:1fr}}
+figure{margin:0;display:grid;gap:6px}
+video{width:100%;max-width:100%;aspect-ratio:832/480;background:#000;border-radius:6px;display:block}
+figcaption{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)}
+figcaption .arm{font-weight:600;color:var(--ink)}
+figcaption .arm.l{color:var(--on)}
+.acc{font:500 12px/1 var(--mono);background:var(--chip);border-radius:4px;padding:4px 6px;color:var(--ink);white-space:nowrap}
+.strip{display:grid;gap:4px}
+.track{position:relative;display:grid;grid-template-columns:repeat(81,1fr);gap:1px;height:14px;cursor:pointer}
+.track span{background:var(--off);border-radius:1px}
+.track span.on{background:var(--on)}
+.track .ph{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);left:0;pointer-events:none}
+.track-lbl{display:flex;justify-content:space-between;font:400 11px/1 var(--mono);color:var(--muted)}
+.ctl{display:flex;align-items:center;gap:10px}
+button{font:500 13px/1 var(--body);color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:6px;padding:8px 12px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--on);outline-offset:2px}
+.clock{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:13px;display:grid;gap:8px;max-width:80ch}
+footer a,.lede a{color:var(--on)}
+@media (prefers-reduced-motion: reduce){video{animation:none}}
+
+
+.hero{display:grid;gap:16px;max-width:none;margin-bottom:10px}
+.hero h1{max-width:860px}
+.kicker{font:500 13px/1 var(--mono);color:var(--on);letter-spacing:.04em;text-transform:uppercase}
+.sub{font:500 18px/1.35 var(--body);color:var(--muted);margin:0;max-width:62ch}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.links a{font:500 14px/1 var(--body);text-decoration:none;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:10px 14px}
+.links a.primary{background:var(--on);color:#fff;border-color:var(--on)}
+.links a:hover{filter:brightness(1.05)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:22px 0 6px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px;display:grid;gap:4px}
+.tile .num{font:700 30px/1 var(--display);color:var(--head);font-variant-numeric:tabular-nums}
+.tile .num small{font:500 14px/1 var(--body);color:var(--muted)}
+.tile .lbl{font-size:13px;color:var(--muted);line-height:1.35}
+.tile.on .num{color:var(--on)}
+.part{border-top:1px solid var(--line);margin-top:34px;padding-top:30px}
+.part h2{font-size:26px}
+.part .lede{margin-bottom:14px}
+.cols{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.prose p{margin:0 0 12px;max-width:70ch}
+.prose b{font-weight:600}
+figure.fig{margin:0;display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px}
+figure.fig img{width:100%;height:auto;border-radius:4px;display:block}
+figure.fig figcaption{display:block;font-size:13px;color:var(--muted)}
+table.res{border-collapse:collapse;width:100%;font-size:13.5px;margin:10px 0 18px;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+table.res th,table.res td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+table.res th{font-weight:600;color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em}
+table.res tr:last-child td{border-bottom:none}
+table.res td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+table.res td.hi{color:var(--on);font-weight:600}
+.callout{border-left:3px solid var(--on);background:var(--surface);border-radius:0 8px 8px 0;padding:12px 14px;margin:14px 0;font-size:14px;max-width:80ch}
+code{font:400 .92em var(--mono);background:var(--chip);padding:1px 5px;border-radius:4px}
+.examples-head{border-top:1px solid var(--line);margin-top:34px;padding-top:30px}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="kicker">Wan2.1-T2V-1.3B · Self-Forcing · NVIDIA A100-40GB</span>
+  <h1>Real-time video diffusion on one GPU: where the time goes, and controlling <em>when</em> an object appears</h1>
+  <p class="sub">Two controlled studies on the same model family. Part A prices every boundary a persistent megakernel would remove
+  in a streaming video DiT and finds the one that matters is already fixed by split-KV. Part B replaces TempoControl's
+  gradient-based timing control (2.6× time, ~110 GB) with a forward-only cross-attention bias costing about 1 % time on a 40 GB card,
+  and carries it into real-time streaming generation where gradient methods cannot run.</p>
+  <div class="links">
+    <a class="primary" href="report/report.pdf">Read the report (PDF)</a>
+    <a href="https://github.com/liadMor123/wan-realtime-control">Code &amp; results on GitHub</a>
+    <a href="#examples">Video examples</a>
+    <a href="#part-a">Part A: latency</a>
+    <a href="#part-b">Part B: timing control</a>
+  </div>
+  <div class="tiles">
+    <div class="tile on"><span class="num">−23.4<small>%</small></span><span class="lbl">chunk-6 latency of Self-Forcing, 1,498 → 1,147 ms, from conventional fixes; quality moves 4.6–7× less than a seed change</span></div>
+    <div class="tile"><span class="num">≈1<small>%</small></span><span class="lbl">of chunk time is kernel-launch boundaries after fusion, the quantity a megakernel removes; the FA2 wave tail (19.2 %) dominates</span></div>
+    <div class="tile on"><span class="num">+15.5<small> pts</small></span><span class="lbl">temporal accuracy on all 80 TempoControl prompts (0.695 → 0.850) vs their gradient-based +19.7, at +0.8 % time and no extra memory</span></div>
+    <div class="tile on"><span class="num">+25.8<small> pts</small></span><span class="lbl">inside real-time Self-Forcing (0.617 → 0.875; +24.2 at a second seed), where TempoControl cannot run at all</span></div>
+    <div class="tile"><span class="num">+1.58<small>%</small></span><span class="lbl">time when the bias rides inside Wan's own FlashAttention-2 kernel through 8 extra head dimensions; 13.5 GB peak on an A100-40GB</span></div>
+  </div>
+</header>
+
+
+<section id="part-a" class="part">
+  <h2>Part A - Where does a real-time video DiT spend its time after CUDA graphs?</h2>
+  <p class="lede">Self-Forcing runs Wan2.1-1.3B chunk by chunk: 30 blocks, 4,680 tokens per pass, five passes per chunk, batch size one. The megakernel
+  literature promises up to 1.7× by removing kernel boundaries. We asked whether that transfers to this compute-bound regime on Ampere, by
+  attribution through controlled intervention over 13 pre-registered jobs, every threshold frozen before its job.</p>
+  <div class="cols">
+    <div class="prose">
+      <p><b>Three boundaries, priced.</b> Kernel-launch boundaries are worth 3.11 ms/pass after fusion - about 1 % of chunk time. An unanticipated
+      RoPE-to-KV-cache materialization costs 19.7 ms/pass at 3–6 % of HBM bandwidth; fusing it recovered 10.7 ms/pass byte-identically. The dominant
+      recoverable cost is a wave-quantization tail in FlashAttention-2: 19.2 % of attention time, because a 444-CTA grid on 108 SMs occupies 4.11 waves
+      and launches five. Only that tail (9.5–12.1 % of chunk time) clears the pre-registered 5 % gate.</p>
+      <p><b>The verdict.</b> An off-the-shelf arm, <code>flash_attn_with_kvcache</code> with an explicit <code>num_splits=4</code>, recovers the whole tail
+      (19.5 % vs 19.2 %). The residual is not measurable against a 4 % build threshold, so the persistent, semaphore-scheduled kernel is <b>not justified</b> on
+      this configuration. Left to its heuristic, FA2 picks about one split and recovers 3 %: the split count must be set explicitly.</p>
+      <p><b>One kernel built, one negative result.</b> A Triton kernel fusing FA2's split-KV combine into the output-projection GEMM is numerically exact
+      and 20 ms/pass <em>slower</em>: 255 registers per thread cap occupancy at one block per SM, the fp32 partials are re-read once per N-block (2.67 GB of L2 traffic
+      vs 0.32 GB for the GEMM), and the tensor pipe is active 9 % of the time against 81 %. Removing the boundary was worth less than the kernel shape it forced.</p>
+      <table class="res">
+        <tr><th>mode</th><th>pos 0</th><th>pos 3</th><th>pos 6 (ms)</th><th>intercept a</th><th>slope b / 1k K</th></tr>
+        <tr><td>eager-original</td><td class="n">803.7</td><td class="n">1146.8</td><td class="n">1498.3</td><td class="n">682.8</td><td class="n">24.86</td></tr>
+        <tr><td><b>final</b> (sync sites, cache-write fusion, Inductor, graphs, split-KV)</td><td class="n hi">559.0</td><td class="n hi">855.9</td><td class="n hi">1147.0</td><td class="n">464.2</td><td class="n">20.94</td></tr>
+        <tr><td>final − split-KV</td><td class="n">553.8</td><td class="n">904.4</td><td class="n">1254.8</td><td class="n">437.5</td><td class="n">24.95</td></tr>
+        <tr><td>final − Inductor</td><td class="n">678.3</td><td class="n">955.7</td><td class="n">1241.8</td><td class="n">582.2</td><td class="n">20.11</td></tr>
+        <tr><td>final + fused merge (J13)</td><td class="n">668.5</td><td class="n">969.2</td><td class="n">1263.4</td><td class="n">571.5</td><td class="n">21.21</td></tr>
+      </table>
+    </div>
+    <div style="display:grid;gap:14px">
+      <figure class="fig"><img src="figures/fig5_j8_waterfall.png" alt="Waterfall from eager-original to final"><figcaption>Leave-one-out waterfall at chunk 6, eager-original → final; right, the J13 fused merge against its own final (+103.7 ms).</figcaption></figure>
+      <figure class="fig"><img src="figures/fig3_j6_tails.png" alt="FA2 wave quantization tail"><figcaption>The FA2 tail measured two ways: ncu, and a head-count staircase whose steps fall where ⌈37H/108⌉ increments.</figcaption></figure>
+      <figure class="fig"><img src="figures/fig6_per_position.png" alt="Per-position chunk time"><figcaption>Per-position chunk time; any single "chunk latency" is meaningless without its position.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+
+<section id="part-b" class="part">
+  <h2>Part B - Controlling <em>when</em> an object appears, without gradients</h2>
+  <p class="lede">Asked for "a car appears during the second second", Wan2.1 usually shows the car from frame 0. TempoControl fixes this by gradient descent
+  on the latent during sampling, at about 2.6× the time and ~110 GB of memory. We tested forward-only edits of the model's text cross-attention on
+  TempoControl's own benchmark, scored with its official, unmodified metric.</p>
+  <div class="cols">
+    <div class="prose">
+      <p><b>The method (arm L).</b> A per-frame bias on the object's text tokens in cross-attention: +β on latent frames where the object should be visible,
+      −γ where it should not, β = γ = 2, conditional CFG branch only, all 30 blocks and 12 heads. No extra steps, no gradients, weights and prompt unchanged.
+      A frame-independent boost of the timing words (arm U) changes nothing, as predicted: the text encoder has no notion of frames, so timing has to enter per frame.</p>
+      <p><b>Why it works and the alternatives fail.</b> Padding tokens absorb ~92 % of cross-attention and the object token gets ~0.1 %, which sets the scale
+      (β = 2 multiplies the object's odds by e² ≈ 7.4). L multiplies every query's odds by the same factor and keeps the spatial pattern; closed-form share targeting
+      (arm S) forces every query of a frame to the same share, erases the spatial contrast, and the object never forms. β = γ = 4 destroys the video when the "off"
+      window is the start.</p>
+      <p><b>Production path.</b> The bias is rank-1 per frame, so it rides inside Wan's unmodified FlashAttention-2 call through 8 extra head dimensions (128 → 136):
+      <code>q</code> carries the per-frame bias, the object keys carry constants summing to 1/scale, <code>v</code> is zero-padded. Zero table → bitwise equal to Wan's flash call.
+      Cost +1.58 % time, +0.008 GB.</p>
+      <p><b>Streaming.</b> Inside Self-Forcing the table is indexed by each chunk's frame offset and applied in every pass. The gain grows with lateness
+      (+41/+44 pts for the last second). Against prompt switching at the onset chunk (Rolling-Forcing- and LongLive-style), L scores higher as measured (+4.8 pts, better
+      CLIP and present frames) but renders substitute objects on 7 of 80 videos in a blinded count, against 0 for switching; with that correction the gap closes. It is a trade-off, not a dominance.</p>
+      <table class="res">
+        <tr><th>model · set</th><th>B0</th><th>L (β=γ=2)</th><th>Δ pts [95 % CI]</th><th>TempoControl</th></tr>
+        <tr><td>Wan2.1 · 80 single-object prompts</td><td class="n">0.695</td><td class="n hi">0.850</td><td class="n">+15.5 [+11.1, +20.2]</td><td class="n">0.639 → 0.836 (+19.7)</td></tr>
+        <tr><td>Self-Forcing · 80 prompts, seed 42</td><td class="n">0.617</td><td class="n hi">0.875</td><td class="n">+25.8 [+20.8, +30.9]</td><td class="n">cannot run</td></tr>
+        <tr><td>Self-Forcing · 80 prompts, seed 43</td><td class="n">0.601</td><td class="n hi">0.843</td><td class="n">+24.2 [+19.1, +29.5]</td><td class="n">cannot run</td></tr>
+        <tr><td>Wan2.1 · all 82 two-object pairs</td><td class="n">0.376</td><td class="n hi">0.472</td><td class="n">+9.6 [+4.2, +15.0]</td><td class="n">0.375 → 0.532 (+15.7)</td></tr>
+        <tr><td>Wan2.1 · 20 held-out, fa2kv path vs flash B0</td><td class="n">0.708</td><td class="n hi">0.880</td><td class="n">+17.2 [+9.0, +26.7]</td><td class="n">-</td></tr>
+      </table>
+      <div class="callout"><b>Honest costs.</b> VBench imaging quality drops by 0.043 (CI excludes 0; pre-registered prediction missed). CLIP prompt similarity drops
+      0.01, consistently. The single-object Wan baseline (69.5 %) sits outside TempoControl's calibration band (63.9 ± 5), so only gains are compared there; on two objects
+      the baselines agree (37.6 vs 37.5 %) and L reaches 47.2 % against their 53.2 %. The method is essentially TS-Attn specialised to one object: the contribution is the measurement.</div>
+    </div>
+    <div style="display:grid;gap:14px">
+      <figure class="fig"><img src="figures/fig_accuracy.png" alt="Accuracy per arm with confidence intervals"><figcaption>Accuracy per arm with 95 % CIs of the paired difference: Wan2.1 single object, Self-Forcing with prompt-switching baselines, two objects.</figcaption></figure>
+      <figure class="fig"><img src="figures/fig_time_memory.png" alt="Time and memory per attention path"><figcaption>Time and memory per attention path on A100-40GB: Wan's flash path, the explicit path, fa2kv with L.</figcaption></figure>
+      <figure class="fig"><img src="figures/fig_sf_block_cost.png" alt="Per-chunk cost in Self-Forcing"><figcaption>Per-chunk cost of L inside Self-Forcing: +1.58 % on the mean, +2.2 % at the first positions.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+
+<section id="examples" class="examples-head">
+  <h2>Examples: when the object appears</h2>
+  <p class="lede">Each row runs the <em>same prompt with the same seed</em> twice: plain Wan2.1 (or Self-Forcing), and the same model with the forward-only
+  per-frame attention bias <b style="color:var(--on)">L</b> (β = γ = 2). Nothing else differs. The prompts are the ones on
+  <a href="https://shira-schiber.github.io/TempoControl/" target="_blank" rel="noopener">TempoControl's project page</a>.</p>
+  <div class="legend"><span><i style="background:var(--on)"></i>frames where the object should be visible</span>
+  <span><i style="background:var(--off)"></i>frames where it should not</span>
+  <span>Accuracy = official TempoControl metric for that video (share of sampled frames correct)</span></div>
+</section>
+<nav aria-label="Example sections"><a href="#wan-one">Wan2.1-T2V-1.3B, one object</a><a href="#sf-one">Self-Forcing (streaming), one object</a><a href="#wan-two">Wan2.1-T2V-1.3B, two objects</a></nav>
+
+<section id="wan-one"><h2>Wan2.1-T2V-1.3B, one object</h2><p class="sec-note">Single object: the object should appear only in the stated second.</p><article class="ex">
+  <div class="ex-head"><span class="ex-label">dog, last second</span><span class="src">website prompt, not in the benchmark: generated for this page</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the last second of the video, a <b>dog</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/dog-last-second__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.50</span></figcaption></figure>
+    <figure><video src="media/dog-last-second__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.50</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>dog: visible from frame 65 (4.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">apple, fourth second</span><span class="src">benchmark prompt 47 (step 4)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the fourth second of the video, a <b>apple</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/apple-fourth-second__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.70</span></figcaption></figure>
+    <figure><video src="media/apple-fourth-second__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.85</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>apple: visible from frame 49 (3.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">umbrella, third second</span><span class="src">benchmark prompt 25 (step 4)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the third second of the video, a <b>umbrella</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/umbrella-third-second__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+    <figure><video src="media/umbrella-third-second__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>umbrella: visible from frame 33 (2.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">dog, second second</span><span class="src">benchmark prompt 16 (step 4)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the second second of the video, a <b>dog</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/dog-second-second__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+    <figure><video src="media/dog-second-second__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.85</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>dog: visible from frame 17 (1.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">skateboard, third second</span><span class="src">benchmark prompt 36 (step 4)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the third second of the video, a <b>skateboard</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/skateboard-third-second__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+    <figure><video src="media/skateboard-third-second__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>skateboard: visible from frame 33 (2.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article></section><section id="sf-one"><h2>Self-Forcing (streaming), one object</h2><p class="sec-note">The same four prompts in Self-Forcing, Wan2.1 distilled to stream chunk by chunk in real time; L is applied per chunk. Gradient-based methods cannot run here.</p><article class="ex">
+  <div class="ex-head"><span class="ex-label">apple, fourth second (SF)</span><span class="src">benchmark prompt 47 (step 3b)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the fourth second of the video, a <b>apple</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/apple-fourth-second-sf__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Self-Forcing, no control</span><span class="acc">accuracy 0.15</span></figcaption></figure>
+    <figure><video src="media/apple-fourth-second-sf__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.80</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>apple: visible from frame 49 (3.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">umbrella, third second (SF)</span><span class="src">benchmark prompt 25 (step 3b)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the third second of the video, a <b>umbrella</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/umbrella-third-second-sf__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Self-Forcing, no control</span><span class="acc">accuracy 0.75</span></figcaption></figure>
+    <figure><video src="media/umbrella-third-second-sf__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>umbrella: visible from frame 33 (2.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">dog, second second (SF)</span><span class="src">benchmark prompt 16 (step 3b)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the second second of the video, a <b>dog</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/dog-second-second-sf__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Self-Forcing, no control</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+    <figure><video src="media/dog-second-second-sf__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.95</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>dog: visible from frame 17 (1.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">skateboard, third second (SF)</span><span class="src">benchmark prompt 36 (step 3b)</span></div>
+  <p class="prompt">“An empty scene. Suddenly, during the third second of the video, a <b>skateboard</b> appears out of nowhere, drawing all attention.”</p>
+  <div class="pair">
+    <figure><video src="media/skateboard-third-second-sf__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Self-Forcing, no control</span><span class="acc">accuracy 0.55</span></figcaption></figure>
+    <figure><video src="media/skateboard-third-second-sf__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>skateboard: visible from frame 33 (2.06 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article></section><section id="wan-two"><h2>Wan2.1-T2V-1.3B, two objects</h2><p class="sec-note">Two objects: the first object should be there from the start, the second only in the second half.</p><article class="ex">
+  <div class="ex-head"><span class="ex-label">cat then dog</span><span class="src">website wording of benchmark pair 1: generated for this page</span></div>
+  <p class="prompt">“The video begins with a serene view centered on the <b>cat</b>, with no sign of the <b>dog</b>. Suddenly, in the second half, <b>dog</b> unexpectedly appears, altering the dynamic of the scene.”</p>
+  <div class="pair">
+    <figure><video src="media/cat-then-dog__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.81</span></figcaption></figure>
+    <figure><video src="media/cat-then-dog__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.95</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>cat: visible throughout</span><span>5.06 s</span></div></div><div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>dog: visible from frame 37 (2.31 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">bird then cat</span><span class="src">website wording of benchmark pair 0: generated for this page</span></div>
+  <p class="prompt">“The video begins with a serene view centered on <b>bird</b>, with no sign of <b>cat</b>. Suddenly, in the second half, <b>cat</b> unexpectedly appears, altering the dynamic of the scene.”</p>
+  <div class="pair">
+    <figure><video src="media/bird-then-cat__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+    <figure><video src="media/bird-then-cat__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.90</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>bird: visible throughout</span><span>5.06 s</span></div></div><div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>cat: visible from frame 37 (2.31 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">wine glass then chair</span><span class="src">website wording of benchmark pair 55: generated for this page</span></div>
+  <p class="prompt">“The video begins with a serene view centered on the <b>wine glass</b>, with no sign of the <b>chair</b>. Suddenly, in the second half, the <b>chair</b> unexpectedly appears, altering the dynamic of the scene.”</p>
+  <div class="pair">
+    <figure><video src="media/wine-glass-then-chair__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.57</span></figcaption></figure>
+    <figure><video src="media/wine-glass-then-chair__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.95</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>wine glass: visible throughout</span><span>5.06 s</span></div></div><div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>chair: visible from frame 37 (2.31 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">bicycle then truck</span><span class="src">website wording of benchmark pair 50: generated for this page</span></div>
+  <p class="prompt">“The video begins with a serene view centered on the <b>bicycle</b>, with no sign of the <b>truck</b>. Suddenly, in the second half, the <b>truck</b> unexpectedly appears, altering the dynamic of the scene.”</p>
+  <div class="pair">
+    <figure><video src="media/bicycle-then-truck__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.00</span></figcaption></figure>
+    <figure><video src="media/bicycle-then-truck__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.43</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>bicycle: visible throughout</span><span>5.06 s</span></div></div><div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>truck: visible from frame 37 (2.31 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article><article class="ex">
+  <div class="ex-head"><span class="ex-label">sheep then horse</span><span class="src">website wording of benchmark pair 3: generated for this page</span></div>
+  <p class="prompt">“The video begins with a serene view centered on the <b>sheep</b>, with no sign of the <b>horse</b>. Suddenly, in the second half, the <b>horse</b> unexpectedly appears, altering the dynamic of the scene.”</p>
+  <div class="pair">
+    <figure><video src="media/sheep-then-horse__b0.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm">Wan 2.1, no control</span><span class="acc">accuracy 0.29</span></figcaption></figure>
+    <figure><video src="media/sheep-then-horse__l.mp4" muted loop playsinline preload="metadata"></video>
+      <figcaption><span class="arm l">with L (ours)</span><span class="acc">accuracy 0.95</span></figcaption></figure>
+  </div>
+  <div class="strip"><div class="track" title="click to seek"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>sheep: visible throughout</span><span>5.06 s</span></div></div><div class="strip"><div class="track" title="click to seek"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><div class="ph"></div></div><div class="track-lbl"><span>horse: visible from frame 37 (2.31 s)</span><span>5.06 s</span></div></div>
+  <div class="ctl"><button type="button">Play</button><span class="clock">frame 00 / 80</span></div>
+</article></section>
+
+<footer>
+  <p><b>What this is.</b> Seed 42 for every video. B0 is the unmodified model; L adds +2 to the object's text tokens in
+  cross-attention on frames where it should be visible and −2 where it should not, in the conditional branch only. For two objects,
+  the static object gets +2 on every frame. No extra steps, no gradients, +0.9 % time.</p>
+  <p><b>Provenance.</b> Single-object prompts dog (2nd), umbrella, skateboard and apple are verbatim benchmark prompts; their videos are the
+  study's step-4 (Wan) and step-3b (Self-Forcing) runs. "Dog, last second" is not in the benchmark and the two-object prompts use the
+  website's wording (the benchmark file words them differently), so those were generated for this page with the same protocol.
+  Six prompts and one seed are illustrative only; the benchmark results (e.g. +15.5 points on all 80 single-object prompts,
+  +9.6 on all 82 pairs) are in the study's findings.</p>
+  <p><b>Not shown.</b> TempoControl's own output videos are not downloadable from their page, so there is no third column, and
+  their movement and audio examples need a method this study did not build.</p>
+
+  <p><b>About.</b> Liad Mordechai, Technion - Computer Architecture final project (Prof. Avi Mendelson, Mr. Yaniv Nemcovsky), 2026.
+  Everything here was measured on NVIDIA A100-SXM4-40GB nodes of the Technion Athena cluster. Full method, every test and every pre-registered miss:
+  <a href="report/report.pdf">report.pdf</a>; code, per-video rows, Slurm jobs and audits: <a href="https://github.com/liadMor123/wan-realtime-control">GitHub</a>.</p>
+</footer>
+</div>
+<script>
+(function(){
+  const FPS=16, N=81;
+  document.querySelectorAll('.ex').forEach(ex=>{
+    const vids=[...ex.querySelectorAll('video')], master=vids[0];
+    const ph=ex.querySelectorAll('.ph'), clock=ex.querySelector('.clock'), btn=ex.querySelector('button');
+    const tick=()=>{
+      const t=master.currentTime||0, d=master.duration||N/FPS, f=Math.min(N-1,Math.floor(t*FPS));
+      ph.forEach(p=>p.style.left=(100*Math.min(t/d,1))+'%');
+      clock.textContent='frame '+String(f).padStart(2,'0')+' / '+(N-1)+'  ·  '+t.toFixed(2)+' s';
+      for(let i=1;i<vids.length;i++){ if(Math.abs(vids[i].currentTime-t)>0.06) vids[i].currentTime=t; }
+      if(!master.paused) requestAnimationFrame(tick);
+    };
+    const play=()=>{vids.forEach(v=>{const p=v.play(); if(p) p.catch(()=>{});}); btn.textContent='Pause'; requestAnimationFrame(tick);};
+    const pause=()=>{vids.forEach(v=>v.pause()); btn.textContent='Play'; tick();};
+    btn.addEventListener('click',()=> master.paused?play():pause());
+    master.addEventListener('loadedmetadata',tick);
+    ex.querySelectorAll('.track').forEach(tr=>tr.addEventListener('click',e=>{
+      const r=tr.getBoundingClientRect(), x=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+      vids.forEach(v=>v.currentTime=x*(master.duration||N/FPS)); tick();
+    }));
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting) play(); else pause(); }),{threshold:0.35}).observe(ex);
+    }
+  });
+})();
+</script>
+</body>
+</html>

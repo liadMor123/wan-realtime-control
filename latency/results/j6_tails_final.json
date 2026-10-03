@@ -1,0 +1,44 @@
+[
+  {
+    "kernel": "FA2 self-attn",
+    "pos": 3,
+    "stage_ms": 94.61,
+    "tail_pct": 19.25735873067623,
+    "tail_ms": 18.21938709509278
+  },
+  {
+    "kernel": "FFN down (addmm_7)",
+    "pos": 3,
+    "stage_ms": 19.63,
+    "tail_pct": 7.82713895291514,
+    "tail_ms": 1.5364673764572419
+  },
+  {
+    "kernel": "FFN up (addmm_5)",
+    "pos": 3,
+    "stage_ms": 16.656,
+    "tail_pct": 2.6284875239484555,
+    "tail_ms": 0.43780088198885475
+  },
+  {
+    "kernel": "FA2 self-attn",
+    "pos": 6,
+    "stage_ms": 165.56,
+    "tail_pct": 19.237755169594134,
+    "tail_ms": 31.85002745878005
+  },
+  {
+    "kernel": "FFN down (addmm_7)",
+    "pos": 6,
+    "stage_ms": 19.63,
+    "tail_pct": 7.748375174602834,
+    "tail_ms": 1.521006046774536
+  },
+  {
+    "kernel": "FFN up (addmm_5)",
+    "pos": 6,
+    "stage_ms": 16.656,
+    "tail_pct": 2.850524339302068,
+    "tail_ms": 0.4747833339541524
+  }
+]

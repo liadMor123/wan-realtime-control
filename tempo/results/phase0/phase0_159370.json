@@ -1,0 +1,2919 @@
+{
+  "job": "159370",
+  "host": "n310",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "protocol": {
+    "size": [
+      832,
+      480
+    ],
+    "frames": 81,
+    "steps": 50,
+    "shift": 3.0,
+    "guide": 6.0,
+    "solver": "unipc",
+    "seed": 42
+  },
+  "token_lookup": {
+    "0": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581person"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "1": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bicycle"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "2": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581car"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "3": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581motorcycle"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "4": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581air",
+        "plane"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "5": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bus"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "6": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581train"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "7": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581truck"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "8": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581boat"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "9": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581traffic",
+        "\u2581light"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "10": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581fire",
+        "\u2581hydra",
+        "nt"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "11": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581stop",
+        "\u2581sign"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "12": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581parking",
+        "\u2581meter"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "13": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bench"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "14": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bird"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "15": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581cat"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "16": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581dog"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "17": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581horse"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "18": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581she",
+        "ep"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "19": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581cow"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581second",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "20": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581e",
+        "lephant"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "21": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bear"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "22": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581zebra"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "23": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581gir",
+        "affe"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "24": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581backpack"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "25": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581u",
+        "mbrella"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "26": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581hand",
+        "bag"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "27": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581tie"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "28": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581suit",
+        "case"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "29": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581fris",
+        "bee"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "30": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581ski",
+        "s"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "31": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581snowboard"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "32": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581sports",
+        "\u2581ball"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "33": {
+      "obj_idx": [
+        18
+      ],
+      "obj_tokens": [
+        "kite"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "34": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581baseball",
+        "\u2581bat"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "35": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581baseball",
+        "\u2581",
+        "glove"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "36": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581skateboard"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "37": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581surf",
+        "board"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "38": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581tennis",
+        "\u2581",
+        "racket"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "39": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bottle"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581third",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "40": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581wine",
+        "\u2581glass"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "41": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581cup"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "42": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581for",
+        "k"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "43": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581k",
+        "nife"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "44": {
+      "obj_idx": [
+        18
+      ],
+      "obj_tokens": [
+        "spoon"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "45": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bowl"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "46": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581banana"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "47": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581apple"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "48": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581sandwich"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "49": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581orange"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "50": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581b",
+        "roccoli"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "51": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581carro",
+        "t"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "52": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581hot",
+        "\u2581dog"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "53": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581pizza"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "54": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581do",
+        "nut"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "55": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581cake"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "56": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581chair"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "57": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581couch"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "58": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581pot",
+        "ted",
+        "\u2581plant"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "59": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581bed"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581fourth",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "60": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581dining",
+        "\u2581table"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "61": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581toilet"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "62": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581tv"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "63": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581laptop"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "64": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581mouse"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "65": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581remote"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "66": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581keyboard"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "67": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581cell",
+        "\u2581phone"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "68": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581microwave"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "69": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581oven"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "70": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581to",
+        "aster"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    },
+    "71": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581sink"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "72": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581refrigerator"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "73": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581book"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "74": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581clock"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "75": {
+      "obj_idx": [
+        17
+      ],
+      "obj_tokens": [
+        "\u2581vase"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 29
+    },
+    "76": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581sci",
+        "ssor",
+        "s"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "77": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581te",
+        "ddy",
+        "\u2581bear"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "78": {
+      "obj_idx": [
+        17,
+        18,
+        19
+      ],
+      "obj_tokens": [
+        "\u2581hair",
+        "\u2581drie",
+        "r"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 31
+    },
+    "79": {
+      "obj_idx": [
+        17,
+        18
+      ],
+      "obj_tokens": [
+        "\u2581tooth",
+        "brush"
+      ],
+      "tmp_idx": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "tmp_tokens": [
+        "\u2581during",
+        "\u2581the",
+        "\u2581last",
+        "\u2581second",
+        "\u2581of",
+        "\u2581the",
+        "\u2581video"
+      ],
+      "n_real_tokens": 30
+    }
+  },
+  "load_wan_t2v_s": 77.28815594105981,
+  "t5_reencode_identical": true,
+  "text_cache": {
+    "n": 81,
+    "dtype": "torch.bfloat16",
+    "real_len_prompt0": 29,
+    "real_len_neg": 126
+  },
+  "timing": {
+    "v1": {
+      "total_s": 192.77179089398123,
+      "peak_gb": 24.071139335632324,
+      "note": "WanT2V.generate incl. T5 encode; T5 resident on GPU; first video = includes warmup"
+    },
+    "v2": {
+      "denoise_s": 185.29349417984486,
+      "total_s": 190.96964102587663,
+      "peak_gb": 13.83570384979248,
+      "path": "flash",
+      "arm": "B0"
+    },
+    "v3": {
+      "denoise_s": 197.75618270109408,
+      "total_s": 203.42312496318482,
+      "peak_gb": 14.206124305725098,
+      "path": "explicit",
+      "arm": "B0"
+    },
+    "v4": {
+      "denoise_s": 205.1938004589174,
+      "total_s": 210.85925899911672,
+      "peak_gb": 14.57460880279541,
+      "path": "explicit",
+      "arm": "L",
+      "note": "beta=gamma=0, record_shares, probes: timing not representative"
+    },
+    "v5": {
+      "denoise_s": 185.29070807201788,
+      "total_s": 190.96076863305643,
+      "peak_gb": 14.944966316223145,
+      "path": "flash",
+      "arm": "B0"
+    },
+    "v6": {
+      "denoise_s": 197.78077849000692,
+      "total_s": 203.45418085809797,
+      "peak_gb": 15.313891410827637,
+      "path": "explicit",
+      "arm": "B0"
+    }
+  },
+  "v2_equals_v1": true,
+  "v2_vs_v1": {
+    "video_maxabs": 0.0,
+    "video_psnr_db": Infinity
+  },
+  "v3_vs_v2": {
+    "video_psnr_db": 22.206358909606934,
+    "video_maxabs": 1.9523074626922607,
+    "latent_maxabs": 3.6456496715545654,
+    "latent_rel_l2": 0.30203497409820557
+  },
+  "prompt0_tokens": {
+    "obj_idx": [
+      17
+    ],
+    "obj_tokens": [
+      "\u2581person"
+    ],
+    "tmp_idx": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "tmp_tokens": [
+      "\u2581during",
+      "\u2581the",
+      "\u2581second",
+      "\u2581second",
+      "\u2581of",
+      "\u2581the",
+      "\u2581video"
+    ],
+    "n_real_tokens": 29
+  },
+  "v4_equals_v3": true,
+  "v4_latent_equals_v3": true,
+  "attn_probes": [
+    {
+      "step": 0,
+      "layer": 0,
+      "flash": {
+        "maxabs": 0.0004884121642739769,
+        "meanabs": 3.975847927368476e-06,
+        "frac_ne_bf16_round_of_fp64": 0.24891270477207977
+      },
+      "explicit": {
+        "maxabs": 0.0005459603424469994,
+        "meanabs": 3.313557969931254e-06,
+        "frac_ne_bf16_round_of_fp64": 0.08130554522156085
+      },
+      "flash_vs_explicit_maxabs": 0.0009765625,
+      "ref_absmax": 0.2363280719572386
+    },
+    {
+      "step": 0,
+      "layer": 14,
+      "flash": {
+        "maxabs": 0.00181287553290721,
+        "meanabs": 8.151420970548638e-06,
+        "frac_ne_bf16_round_of_fp64": 0.23369084980413107
+      },
+      "explicit": {
+        "maxabs": 0.00181287553290721,
+        "meanabs": 6.896078320541784e-06,
+        "frac_ne_bf16_round_of_fp64": 0.07955689420533171
+      },
+      "flash_vs_explicit_maxabs": 0.001953125,
+      "ref_absmax": 0.6540462125308875
+    },
+    {
+      "step": 0,
+      "layer": 29,
+      "flash": {
+        "maxabs": 0.0010972704357471996,
+        "meanabs": 1.7711474504085255e-05,
+        "frac_ne_bf16_round_of_fp64": 0.2293843164936915
+      },
+      "explicit": {
+        "maxabs": 0.0010974429094749993,
+        "meanabs": 1.6289284912880468e-05,
+        "frac_ne_bf16_round_of_fp64": 0.08521934698692511
+      },
+      "flash_vs_explicit_maxabs": 0.001953125,
+      "ref_absmax": 0.48779673863126277
+    },
+    {
+      "step": 25,
+      "layer": 0,
+      "flash": {
+        "maxabs": 0.0004892129268006251,
+        "meanabs": 2.2160246704949975e-06,
+        "frac_ne_bf16_round_of_fp64": 0.1904255539021164
+      },
+      "explicit": {
+        "maxabs": 0.000510623208877875,
+        "meanabs": 1.920993164297035e-06,
+        "frac_ne_bf16_round_of_fp64": 0.08441267933455433
+      },
+      "flash_vs_explicit_maxabs": 0.0009765625,
+      "ref_absmax": 0.23632808251427168
+    },
+    {
+      "step": 25,
+      "layer": 14,
+      "flash": {
+        "maxabs": 0.0025102435274479973,
+        "meanabs": 3.512757907667592e-06,
+        "frac_ne_bf16_round_of_fp64": 0.1750406404214998
+      },
+      "explicit": {
+        "maxabs": 0.0025102435274479973,
+        "meanabs": 3.0982972642257113e-06,
+        "frac_ne_bf16_round_of_fp64": 0.08523987586487587
+      },
+      "flash_vs_explicit_maxabs": 0.00390625,
+      "ref_absmax": 1.3262922080752688
+    },
+    {
+      "step": 25,
+      "layer": 29,
+      "flash": {
+        "maxabs": 0.0021612718797223707,
+        "meanabs": 9.819060122363819e-06,
+        "frac_ne_bf16_round_of_fp64": 0.2526628120866402
+      },
+      "explicit": {
+        "maxabs": 0.0021612718797223707,
+        "meanabs": 7.71705356871316e-06,
+        "frac_ne_bf16_round_of_fp64": 0.10237960101241352
+      },
+      "flash_vs_explicit_maxabs": 0.00390625,
+      "ref_absmax": 1.0021612718797224
+    },
+    {
+      "step": 49,
+      "layer": 0,
+      "flash": {
+        "maxabs": 0.0006700628720843205,
+        "meanabs": 2.7890567833078526e-06,
+        "frac_ne_bf16_round_of_fp64": 0.13343520267348394
+      },
+      "explicit": {
+        "maxabs": 0.0005506647264070241,
+        "meanabs": 2.5364618780797348e-06,
+        "frac_ne_bf16_round_of_fp64": 0.0798740484775641
+      },
+      "flash_vs_explicit_maxabs": 0.0009765625,
+      "ref_absmax": 0.24994562210144705
+    },
+    {
+      "step": 49,
+      "layer": 14,
+      "flash": {
+        "maxabs": 0.0012442538794312785,
+        "meanabs": 2.945963901939546e-06,
+        "frac_ne_bf16_round_of_fp64": 0.1526645012973138
+      },
+      "explicit": {
+        "maxabs": 0.0009522938505152068,
+        "meanabs": 2.7355519484646673e-06,
+        "frac_ne_bf16_round_of_fp64": 0.08617138612255801
+      },
+      "flash_vs_explicit_maxabs": 0.001953125,
+      "ref_absmax": 0.3976601204589173
+    },
+    {
+      "step": 49,
+      "layer": 29,
+      "flash": {
+        "maxabs": 0.0021645822431755057,
+        "meanabs": 9.960313477567971e-06,
+        "frac_ne_bf16_round_of_fp64": 0.25178030881155883
+      },
+      "explicit": {
+        "maxabs": 0.0020334598289747374,
+        "meanabs": 7.88358021982996e-06,
+        "frac_ne_bf16_round_of_fp64": 0.09914005265567766
+      },
+      "flash_vs_explicit_maxabs": 0.00390625,
+      "ref_absmax": 0.7056700655487266
+    }
+  ],
+  "explicit_within_fp32_band": true,
+  "share_summary_prompt0": {
+    "0": {
+      "obj": [
+        0.0026723104529082775,
+        0.002092304639518261,
+        0.002852463163435459,
+        0.0027900051791220903,
+        0.0028784575406461954,
+        0.0033399651292711496,
+        0.003449956187978387,
+        0.0037827356718480587,
+        0.003816693089902401,
+        0.003898774506524205,
+        0.003804204287007451,
+        0.0038970638997852802,
+        0.004083246923983097,
+        0.003951827064156532,
+        0.003828484797850251,
+        0.00382239674217999,
+        0.0037302023265510798,
+        0.004003642126917839,
+        0.00413720216602087,
+        0.004141361452639103,
+        0.004895396996289492
+      ],
+      "tmp": [
+        0.010794078931212425,
+        0.00933008175343275,
+        0.010341308079659939,
+        0.010798798874020576,
+        0.011387074366211891,
+        0.011600148864090443,
+        0.011921212077140808,
+        0.012014786712825298,
+        0.012060987763106823,
+        0.012288576923310757,
+        0.012340803630650043,
+        0.012173396535217762,
+        0.012574917636811733,
+        0.012099113315343857,
+        0.011866102926433086,
+        0.011881079524755478,
+        0.01194151584059,
+        0.011789989657700062,
+        0.012098269537091255,
+        0.01157418917864561,
+        0.012464032508432865
+      ],
+      "real": [
+        0.09181899577379227,
+        0.08477016538381577,
+        0.0849781408905983,
+        0.0858938992023468,
+        0.08620289713144302,
+        0.08720386028289795,
+        0.08855156600475311,
+        0.08998080343008041,
+        0.08883403986692429,
+        0.08931591361761093,
+        0.08879183232784271,
+        0.08734238892793655,
+        0.08890507370233536,
+        0.08795014768838882,
+        0.0864485576748848,
+        0.0859331339597702,
+        0.08696872740983963,
+        0.08663510531187057,
+        0.08733994513750076,
+        0.08633009344339371,
+        0.09126312285661697
+      ],
+      "pad": [
+        0.9081810116767883,
+        0.9152297973632812,
+        0.9150218963623047,
+        0.9141061305999756,
+        0.91379714012146,
+        0.912796139717102,
+        0.9114484786987305,
+        0.9100191593170166,
+        0.9111660122871399,
+        0.9106840491294861,
+        0.9112082123756409,
+        0.912657618522644,
+        0.9110949039459229,
+        0.9120498895645142,
+        0.9135514497756958,
+        0.9140669107437134,
+        0.9130313396453857,
+        0.9133650064468384,
+        0.9126600623130798,
+        0.9136698842048645,
+        0.9087369441986084
+      ]
+    },
+    "10": {
+      "obj": [
+        0.000768758705817163,
+        0.0006412019138224423,
+        0.0008503110730089247,
+        0.0007508908747695386,
+        0.0011601991718634963,
+        0.000946896499954164,
+        0.001666903030127287,
+        0.0021064996253699064,
+        0.0021997320000082254,
+        0.002370854141190648,
+        0.002145799109712243,
+        0.0018275672337040305,
+        0.0014983660075813532,
+        0.0013258781982585788,
+        0.0014093242352828383,
+        0.0013792578829452395,
+        0.0014486792497336864,
+        0.0014066807925701141,
+        0.0014710157411172986,
+        0.0013414861168712378,
+        0.001691125798970461
+      ],
+      "tmp": [
+        0.006387633737176657,
+        0.006390177644789219,
+        0.006527851335704327,
+        0.0064391521736979485,
+        0.007229782175272703,
+        0.006996869575232267,
+        0.009847940877079964,
+        0.010497327893972397,
+        0.010161640122532845,
+        0.009672661311924458,
+        0.009741725400090218,
+        0.007496547419577837,
+        0.006139607168734074,
+        0.0053481291979551315,
+        0.005652836058288813,
+        0.006071233656257391,
+        0.005881696939468384,
+        0.006023254711180925,
+        0.006179234012961388,
+        0.005479067098349333,
+        0.006881915032863617
+      ],
+      "real": [
+        0.05786890909075737,
+        0.05795028433203697,
+        0.061542414128780365,
+        0.061020076274871826,
+        0.06882774084806442,
+        0.06608721613883972,
+        0.08842156827449799,
+        0.09455583244562149,
+        0.09417842328548431,
+        0.09010781347751617,
+        0.0918644368648529,
+        0.07723418623209,
+        0.06853879988193512,
+        0.06314903497695923,
+        0.06427348405122757,
+        0.06768307834863663,
+        0.06693054735660553,
+        0.0675535723567009,
+        0.06753402203321457,
+        0.06409360468387604,
+        0.07265930622816086
+      ],
+      "pad": [
+        0.9421311020851135,
+        0.9420497417449951,
+        0.9384576082229614,
+        0.9389799237251282,
+        0.9311721920967102,
+        0.9339128136634827,
+        0.9115784764289856,
+        0.9054442048072815,
+        0.9058215618133545,
+        0.909892201423645,
+        0.9081355929374695,
+        0.922765851020813,
+        0.9314612150192261,
+        0.9368509650230408,
+        0.935726523399353,
+        0.9323169589042664,
+        0.9330694675445557,
+        0.9324464797973633,
+        0.9324659109115601,
+        0.9359064698219299,
+        0.9273406863212585
+      ]
+    },
+    "25": {
+      "obj": [
+        0.0005108101759105921,
+        0.000505491450894624,
+        0.0006717536598443985,
+        0.0006093314150348306,
+        0.0009251123410649598,
+        0.0007145219715312123,
+        0.0013321512378752232,
+        0.0017414613394066691,
+        0.0018665310926735401,
+        0.0017901748651638627,
+        0.0018871144857257605,
+        0.0014626828487962484,
+        0.001169059076346457,
+        0.0010603588307276368,
+        0.0010799650335684419,
+        0.0011277602752670646,
+        0.0012616782914847136,
+        0.001148127019405365,
+        0.0011961105046793818,
+        0.0010367762297391891,
+        0.0013053230941295624
+      ],
+      "tmp": [
+        0.005362313706427813,
+        0.006095109507441521,
+        0.006359169725328684,
+        0.006156626157462597,
+        0.007101462222635746,
+        0.006232738494873047,
+        0.009851737879216671,
+        0.010485404171049595,
+        0.010408305563032627,
+        0.010026659816503525,
+        0.010402651503682137,
+        0.007519327104091644,
+        0.005927850026637316,
+        0.005227447487413883,
+        0.005225594621151686,
+        0.006004403345286846,
+        0.005987305659800768,
+        0.0059923455119132996,
+        0.006105500273406506,
+        0.005256976466625929,
+        0.00677898433059454
+      ],
+      "real": [
+        0.05126935988664627,
+        0.0555821917951107,
+        0.060130782425403595,
+        0.05957941710948944,
+        0.0686364620923996,
+        0.06318321824073792,
+        0.08900663256645203,
+        0.0958404615521431,
+        0.09653066843748093,
+        0.0918378084897995,
+        0.09527875483036041,
+        0.07883443683385849,
+        0.06842835992574692,
+        0.06243075802922249,
+        0.0620417445898056,
+        0.06694193929433823,
+        0.06733815371990204,
+        0.06753157079219818,
+        0.06670830398797989,
+        0.06206560134887695,
+        0.07222341001033783
+      ],
+      "pad": [
+        0.9487305879592896,
+        0.9444178342819214,
+        0.9398691654205322,
+        0.9404206871986389,
+        0.9313635230064392,
+        0.9368168115615845,
+        0.9109933376312256,
+        0.9041595458984375,
+        0.9034693241119385,
+        0.9081621766090393,
+        0.904721200466156,
+        0.9211655855178833,
+        0.9315716624259949,
+        0.937569260597229,
+        0.937958300113678,
+        0.9330580830574036,
+        0.9326618313789368,
+        0.9324684739112854,
+        0.9332916736602783,
+        0.9379343390464783,
+        0.927776575088501
+      ]
+    },
+    "49": {
+      "obj": [
+        0.0002860579115804285,
+        0.00039436417864635587,
+        0.0005161232547834516,
+        0.0004947398556396365,
+        0.0007372332038357854,
+        0.0005415640771389008,
+        0.0008810003637336195,
+        0.0010946254478767514,
+        0.0012124845525249839,
+        0.0011763086076825857,
+        0.0012431343784555793,
+        0.0010274449596181512,
+        0.0007738423300907016,
+        0.0006607315153814852,
+        0.0005751316784881055,
+        0.0007415009313262999,
+        0.0008351627620868385,
+        0.0007525766850449145,
+        0.0008302468922920525,
+        0.0006464631878770888,
+        0.0008065064321272075
+      ],
+      "tmp": [
+        0.004479587078094482,
+        0.0058043417520821095,
+        0.005614504683762789,
+        0.005870187655091286,
+        0.006629588082432747,
+        0.005693368148058653,
+        0.008692631497979164,
+        0.008674275130033493,
+        0.008332238532602787,
+        0.008382538333535194,
+        0.00865431223064661,
+        0.006774386391043663,
+        0.0055358451791107655,
+        0.004624607041478157,
+        0.004446716979146004,
+        0.0055332183837890625,
+        0.005380609072744846,
+        0.005355690140277147,
+        0.005553572438657284,
+        0.004697208292782307,
+        0.005789007525891066
+      ],
+      "real": [
+        0.043286070227622986,
+        0.0533832386136055,
+        0.056708384305238724,
+        0.057955991476774216,
+        0.06620161235332489,
+        0.05843435972929001,
+        0.07897353917360306,
+        0.08296848833560944,
+        0.08316601067781448,
+        0.0816793367266655,
+        0.08431806415319443,
+        0.07631758600473404,
+        0.06596202403306961,
+        0.05936672165989876,
+        0.0565168522298336,
+        0.06373980641365051,
+        0.06315179169178009,
+        0.06303118914365768,
+        0.06501428782939911,
+        0.058682624250650406,
+        0.06633005291223526
+      ],
+      "pad": [
+        0.9567139148712158,
+        0.9466167688369751,
+        0.9432916045188904,
+        0.9420440793037415,
+        0.9337984323501587,
+        0.9415656328201294,
+        0.9210264682769775,
+        0.917031466960907,
+        0.9168339967727661,
+        0.9183205962181091,
+        0.9156819581985474,
+        0.9236823916435242,
+        0.9340380430221558,
+        0.940633237361908,
+        0.9434831738471985,
+        0.9362601637840271,
+        0.9368482828140259,
+        0.9369688630104065,
+        0.9349857568740845,
+        0.9413173794746399,
+        0.933669924736023
+      ]
+    }
+  },
+  "explicit_overhead_frac": [
+    0.06521185184414069,
+    0.06542397328243088
+  ],
+  "S_exactness": {
+    "scale0.3": {
+      "min_log_share_before": -5.848507265171322,
+      "out_maxabs_vs_fp64_logit_shift": 0.0021946666396324144,
+      "fp64_share_maxerr_vs_target": 4.440892098500626e-16,
+      "measured_share_maxerr_vs_target(bf16 out)": 0.0007812380790710449,
+      "row_sum_maxerr(bf16 out)": 0.0
+    },
+    "scale3.0": {
+      "min_log_share_before": -65.15417833274886,
+      "out_maxabs_vs_fp64_logit_shift": 0.015884528427783096,
+      "fp64_share_maxerr_vs_target": 2.942091015256665e-15,
+      "measured_share_maxerr_vs_target(bf16 out)": 0.0007812380790710449,
+      "row_sum_maxerr(bf16 out)": 0.0
+    }
+  },
+  "P_offframe_obj_share_max": 0.0,
+  "arm_smoke_3steps": {
+    "U_b2_s42": {
+      "finite": true,
+      "absmean": 0.578785240650177
+    },
+    "L_b2g2_s42": {
+      "finite": true,
+      "absmean": 0.9116079211235046
+    },
+    "S_hi0.3lo0.02_s42": {
+      "finite": true,
+      "absmean": 0.8880223035812378
+    },
+    "P_s42": {
+      "finite": true,
+      "absmean": 0.7145430445671082
+    },
+    "L_b2g2_k1_s42": {
+      "finite": true,
+      "absmean": 0.9093562364578247
+    }
+  },
+  "done": true
+}

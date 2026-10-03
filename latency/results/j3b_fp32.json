@@ -1,0 +1,15 @@
+{
+  "band_eager_bf16_vs_fp32": {
+    "max_abs": 0.355826735496521,
+    "mean_abs": 0.01988263428211212
+  },
+  "modes": {
+    "compile_nocg": {
+      "max_abs": 0.22696590423583984,
+      "mean_abs": 0.016686363145709038,
+      "within_2x_band": true,
+      "ratio_max": 0.6378551176575628,
+      "ratio_mean": 0.8392430755878921
+    }
+  }
+}

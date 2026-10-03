@@ -1,0 +1,9 @@
+prompt,temp_object,control_signal1
+"An empty scene. Suddenly, during the second second of the video, a person appears out of nowhere, drawing all attention.",person,0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+"An empty scene. Suddenly, during the second second of the video, a bicycle appears out of nowhere, drawing all attention.",bicycle,0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+"An empty scene. Suddenly, during the third second of the video, a elephant appears out of nowhere, drawing all attention.",elephant,0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1
+"An empty scene. Suddenly, during the third second of the video, a bear appears out of nowhere, drawing all attention.",bear,0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1
+"An empty scene. Suddenly, during the fourth second of the video, a wine glass appears out of nowhere, drawing all attention.",wine glass,0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+"An empty scene. Suddenly, during the fourth second of the video, a cup appears out of nowhere, drawing all attention.",cup,0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+"An empty scene. Suddenly, during the last second of the video, a dining table appears out of nowhere, drawing all attention.",dining table,0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1
+"An empty scene. Suddenly, during the last second of the video, a toilet appears out of nowhere, drawing all attention.",toilet,0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1

@@ -1,0 +1,1398 @@
+{
+ "what": "official metric (and CLIP) on the GPU vs the earlier CPU scores of the same videos",
+ "one_object": {
+  "ids": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   22,
+   23,
+   24,
+   25,
+   26,
+   42,
+   43,
+   44,
+   45,
+   46,
+   62,
+   63,
+   64,
+   65,
+   66
+  ],
+  "cpu_dir": "results/metric/phase2",
+  "gpu_dir": "results/metric/phase2_gpu",
+  "tags": {
+   "B0_s42": {
+    "status": "compared",
+    "n": 20,
+    "n_equal": 20,
+    "all_equal": true,
+    "max_abs_diff": 0.0,
+    "mean_abs_diff": 0.0,
+    "cpu_mean": 0.7050000000000001,
+    "gpu_mean": 0.7050000000000001,
+    "per_video": [
+     {
+      "id": 2,
+      "cpu": 0.95,
+      "gpu": 0.95,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 3,
+      "cpu": 0.35,
+      "gpu": 0.35,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 4,
+      "cpu": 0.8,
+      "gpu": 0.8,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 5,
+      "cpu": 0.85,
+      "gpu": 0.85,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 6,
+      "cpu": 0.6,
+      "gpu": 0.6,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 22,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 23,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 24,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 25,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 26,
+      "cpu": 0.95,
+      "gpu": 0.95,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 42,
+      "cpu": 0.7,
+      "gpu": 0.7,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 43,
+      "cpu": 0.4,
+      "gpu": 0.4,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 44,
+      "cpu": 0.5,
+      "gpu": 0.5,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 45,
+      "cpu": 0.7,
+      "gpu": 0.7,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 46,
+      "cpu": 0.6,
+      "gpu": 0.6,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 62,
+      "cpu": 0.55,
+      "gpu": 0.55,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 63,
+      "cpu": 0.5,
+      "gpu": 0.5,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 64,
+      "cpu": 0.8,
+      "gpu": 0.8,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 65,
+      "cpu": 0.7,
+      "gpu": 0.7,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 66,
+      "cpu": 0.55,
+      "gpu": 0.55,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     }
+    ],
+    "clip": {
+     "max_abs_diff": 1.4901161193847656e-07,
+     "mean_abs_diff": 3.799796104431152e-08,
+     "n_bitwise_equal": 7
+    }
+   },
+   "L_b2g2_s42": {
+    "status": "compared",
+    "n": 20,
+    "n_equal": 20,
+    "all_equal": true,
+    "max_abs_diff": 0.0,
+    "mean_abs_diff": 0.0,
+    "cpu_mean": 0.875,
+    "gpu_mean": 0.875,
+    "per_video": [
+     {
+      "id": 2,
+      "cpu": 0.95,
+      "gpu": 0.95,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 3,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 4,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 5,
+      "cpu": 0.85,
+      "gpu": 0.85,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 6,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 22,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 23,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 24,
+      "cpu": 0.95,
+      "gpu": 0.95,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 25,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 26,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 42,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 43,
+      "cpu": 0.7,
+      "gpu": 0.7,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 44,
+      "cpu": 0.9,
+      "gpu": 0.9,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 45,
+      "cpu": 0.7,
+      "gpu": 0.7,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 46,
+      "cpu": 0.8,
+      "gpu": 0.8,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 62,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 63,
+      "cpu": 0.5,
+      "gpu": 0.5,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 64,
+      "cpu": 0.8,
+      "gpu": 0.8,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 65,
+      "cpu": 0.95,
+      "gpu": 0.95,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     },
+     {
+      "id": 66,
+      "cpu": 0.7,
+      "gpu": 0.7,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "object_absent_successes": true,
+       "object_present_successes": true
+      }
+     }
+    ],
+    "clip": {
+     "max_abs_diff": 1.341104507446289e-07,
+     "mean_abs_diff": 4.76837158203125e-08,
+     "n_bitwise_equal": 4
+    }
+   }
+  },
+  "status": "compared",
+  "n_videos": 40,
+  "n_equal": 40,
+  "all_equal": true,
+  "max_abs_diff": 0.0
+ },
+ "two_object": {
+  "ids": [
+   0,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   13,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26
+  ],
+  "cpu_dir": "results/metric/phase5",
+  "gpu_dir": "results/metric/phase5_gpu",
+  "tags": {
+   "B0_2obj_s42": {
+    "status": "compared",
+    "n": 20,
+    "n_equal": 20,
+    "all_equal": true,
+    "max_abs_diff": 0.0,
+    "mean_abs_diff": 0.0,
+    "cpu_mean": 0.4738095238095238,
+    "gpu_mean": 0.4738095238095238,
+    "per_video": [
+     {
+      "id": 0,
+      "cpu": 0.47619047619047616,
+      "gpu": 0.47619047619047616,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 3,
+      "cpu": 0.6190476190476191,
+      "gpu": 0.6190476190476191,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 4,
+      "cpu": 0.6666666666666666,
+      "gpu": 0.6666666666666666,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 5,
+      "cpu": 0.09523809523809523,
+      "gpu": 0.09523809523809523,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 6,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 7,
+      "cpu": 0.7142857142857143,
+      "gpu": 0.7142857142857143,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 8,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 9,
+      "cpu": 0.19047619047619047,
+      "gpu": 0.19047619047619047,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 10,
+      "cpu": 0.0,
+      "gpu": 0.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 11,
+      "cpu": 0.8571428571428571,
+      "gpu": 0.8571428571428571,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 13,
+      "cpu": 0.9047619047619048,
+      "gpu": 0.9047619047619048,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 18,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 19,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 20,
+      "cpu": 0.38095238095238093,
+      "gpu": 0.38095238095238093,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 21,
+      "cpu": 0.5714285714285714,
+      "gpu": 0.5714285714285714,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 22,
+      "cpu": 0.0,
+      "gpu": 0.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 23,
+      "cpu": 0.47619047619047616,
+      "gpu": 0.47619047619047616,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 24,
+      "cpu": 0.3333333333333333,
+      "gpu": 0.3333333333333333,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 25,
+      "cpu": 0.8571428571428571,
+      "gpu": 0.8571428571428571,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 26,
+      "cpu": 0.23809523809523808,
+      "gpu": 0.23809523809523808,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     }
+    ],
+    "clip": {
+     "max_abs_diff": 1.7881393432617188e-07,
+     "mean_abs_diff": 6.258487701416016e-08,
+     "n_bitwise_equal": 3
+    }
+   },
+   "L_b2g2_2obj_s42": {
+    "status": "compared",
+    "n": 20,
+    "n_equal": 20,
+    "all_equal": true,
+    "max_abs_diff": 0.0,
+    "mean_abs_diff": 0.0,
+    "cpu_mean": 0.6761904761904762,
+    "gpu_mean": 0.6761904761904762,
+    "per_video": [
+     {
+      "id": 0,
+      "cpu": 0.8095238095238095,
+      "gpu": 0.8095238095238095,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 3,
+      "cpu": 0.9047619047619048,
+      "gpu": 0.9047619047619048,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 4,
+      "cpu": 0.9523809523809523,
+      "gpu": 0.9523809523809523,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 5,
+      "cpu": 0.47619047619047616,
+      "gpu": 0.47619047619047616,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 6,
+      "cpu": 0.42857142857142855,
+      "gpu": 0.42857142857142855,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 7,
+      "cpu": 0.9047619047619048,
+      "gpu": 0.9047619047619048,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 8,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 9,
+      "cpu": 0.8095238095238095,
+      "gpu": 0.8095238095238095,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 10,
+      "cpu": 0.42857142857142855,
+      "gpu": 0.42857142857142855,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 11,
+      "cpu": 0.9523809523809523,
+      "gpu": 0.9523809523809523,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 13,
+      "cpu": 0.9523809523809523,
+      "gpu": 0.9523809523809523,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 18,
+      "cpu": 0.5714285714285714,
+      "gpu": 0.5714285714285714,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 19,
+      "cpu": 0.47619047619047616,
+      "gpu": 0.47619047619047616,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 20,
+      "cpu": 0.9047619047619048,
+      "gpu": 0.9047619047619048,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 21,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 22,
+      "cpu": 0.0,
+      "gpu": 0.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 23,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 24,
+      "cpu": 0.8571428571428571,
+      "gpu": 0.8571428571428571,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 25,
+      "cpu": 0.5238095238095238,
+      "gpu": 0.5238095238095238,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     },
+     {
+      "id": 26,
+      "cpu": 1.0,
+      "gpu": 1.0,
+      "abs_diff": 0.0,
+      "equal": true,
+      "fields_equal": {
+       "video_results": true,
+       "success_frame_count": true,
+       "frame_count": true,
+       "static_object_success_rate": true,
+       "temp_object_success_rate": true
+      }
+     }
+    ],
+    "clip": {
+     "max_abs_diff": 1.4901161193847656e-07,
+     "mean_abs_diff": 6.0349702835083e-08,
+     "n_bitwise_equal": 2
+    }
+   }
+  },
+  "status": "compared",
+  "n_videos": 40,
+  "n_equal": 40,
+  "all_equal": true,
+  "max_abs_diff": 0.0
+ },
+ "devices": {
+  "results/metric/phase24/B0_flash_s42/_metric_device.json": {
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "predictor_devices": [
+    "cuda:0"
+   ],
+   "param_devices": [
+    "cuda:0"
+   ],
+   "forward_input_devices": {
+    "cuda:0": 401
+   },
+   "forward_calls": 401,
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "max_memory_allocated_mb": 398.50244140625
+  },
+  "results/metric/phase24/L_b2g2_fa2kv_s42/_metric_device.json": {
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "predictor_devices": [
+    "cuda:0"
+   ],
+   "param_devices": [
+    "cuda:0"
+   ],
+   "forward_input_devices": {
+    "cuda:0": 401
+   },
+   "forward_calls": 401,
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "max_memory_allocated_mb": 398.50244140625
+  },
+  "results/quality/phase24/_clip_device.json": {
+   "device": "cuda",
+   "param_device": "cuda:0",
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "cudnn_allow_tf32": true,
+   "matmul_allow_tf32": false,
+   "tags": [
+    "B0_flash_s42",
+    "L_b2g2_fa2kv_s42"
+   ],
+   "max_memory_allocated_mb": 1907.75
+  },
+  "results/metric/phase2_gpu/B0_s42/_metric_device.json": {
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "predictor_devices": [
+    "cuda:0"
+   ],
+   "param_devices": [
+    "cuda:0"
+   ],
+   "forward_input_devices": {
+    "cuda:0": 401
+   },
+   "forward_calls": 401,
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "max_memory_allocated_mb": 398.50244140625
+  },
+  "results/metric/phase2_gpu/L_b2g2_s42/_metric_device.json": {
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "predictor_devices": [
+    "cuda:0"
+   ],
+   "param_devices": [
+    "cuda:0"
+   ],
+   "forward_input_devices": {
+    "cuda:0": 401
+   },
+   "forward_calls": 401,
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "max_memory_allocated_mb": 398.50244140625
+  },
+  "results/quality/phase2_gpu/_clip_device.json": {
+   "device": "cuda",
+   "param_device": "cuda:0",
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "cudnn_allow_tf32": true,
+   "matmul_allow_tf32": false,
+   "tags": [
+    "B0_s42",
+    "L_b2g2_s42"
+   ],
+   "max_memory_allocated_mb": 1907.75
+  },
+  "results/metric/phase5_gpu/B0_2obj_s42/_metric_device.json": {
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "predictor_devices": [
+    "cuda:0"
+   ],
+   "param_devices": [
+    "cuda:0"
+   ],
+   "forward_input_devices": {
+    "cuda:0": 1723
+   },
+   "forward_calls": 1723,
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "max_memory_allocated_mb": 398.50244140625
+  },
+  "results/metric/phase5_gpu/L_b2g2_2obj_s42/_metric_device.json": {
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "predictor_devices": [
+    "cuda:0"
+   ],
+   "param_devices": [
+    "cuda:0"
+   ],
+   "forward_input_devices": {
+    "cuda:0": 1723
+   },
+   "forward_calls": 1723,
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "max_memory_allocated_mb": 398.50244140625
+  },
+  "results/quality/phase5_gpu/_clip_device.json": {
+   "device": "cuda",
+   "param_device": "cuda:0",
+   "cuda_available": true,
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "NVIDIA_TF32_OVERRIDE": "0",
+   "cudnn_allow_tf32": true,
+   "matmul_allow_tf32": false,
+   "tags": [
+    "B0_2obj_s42",
+    "L_b2g2_2obj_s42"
+   ],
+   "max_memory_allocated_mb": 1907.75
+  }
+ },
+ "all_equal": true
+}

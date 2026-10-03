@@ -1,0 +1,14 @@
+{
+ "device": "cuda",
+ "param_device": "cuda:0",
+ "cuda_available": true,
+ "gpu": "NVIDIA A100-SXM4-40GB",
+ "NVIDIA_TF32_OVERRIDE": "0",
+ "cudnn_allow_tf32": true,
+ "matmul_allow_tf32": false,
+ "tags": [
+  "B0_2obj_s42",
+  "L_b2g2_2obj_s42"
+ ],
+ "max_memory_allocated_mb": 1907.75
+}

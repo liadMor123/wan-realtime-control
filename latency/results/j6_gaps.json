@@ -1,0 +1,50 @@
+{
+  "n_events": 17115,
+  "span_ms": 3955.063335,
+  "busy_ms": 3932.55417,
+  "gap_ms": 22.509165,
+  "gap_pct_of_span": 0.5691227445286916,
+  "gap_ms_per_pass": 1.500611,
+  "top_gaps_us": [
+    [
+      415325.0,
+      "triton_poi_fused_convolution_0"
+    ],
+    [
+      223422.0,
+      "void at::native::elementwise_kernel<(int)128, (int)4, void a"
+    ],
+    [
+      156222.0,
+      "ampere_bf16_s16816gemm_bf16_64x64_sliced1x2_ldg8_f2f_stages_"
+    ],
+    [
+      141823.0,
+      "[CUDA memcpy Device-to-Device]"
+    ],
+    [
+      140543.0,
+      "triton_tem_fused_addmm_1"
+    ],
+    [
+      134495.0,
+      "triton_poi_fused_add_0"
+    ],
+    [
+      133887.0,
+      "void at::native::<unnamed>::CatArrayBatchedCopy<at::native::"
+    ],
+    [
+      130047.0,
+      "triton_tem_fused_addmm_0"
+    ],
+    [
+      129119.0,
+      "triton_red_fused__to_copy_add_mean_mul_pow_rsqrt_1"
+    ],
+    [
+      96447.0,
+      "triton_poi_fused_cat_0"
+    ]
+  ]
+}

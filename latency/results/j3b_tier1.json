@@ -1,0 +1,17 @@
+{
+  "hashes": {
+    "compile_nocg": "7d3121c876418fcb7bd525601f18578e3f19955634c0b1521e19db8f36c77524",
+    "eager-original": "12ad79ac76058b1ff1797fb9640ede64eff70cbc959fda9c51f677763974f724",
+    "eager-patched": "12ad79ac76058b1ff1797fb9640ede64eff70cbc959fda9c51f677763974f724",
+    "manual_graph": "12ad79ac76058b1ff1797fb9640ede64eff70cbc959fda9c51f677763974f724",
+    "manual_graph_compiled": "43c73729cc25fe83d9f96580804f2635e591f460060293e3a100f259e59f4d00"
+  },
+  "tier1": {
+    "eager-patched_vs_eager-original": {
+      "bitwise_identical": true
+    },
+    "manual_graph_vs_eager-patched": {
+      "bitwise_identical": true
+    }
+  }
+}

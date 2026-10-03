@@ -1,0 +1,26 @@
+{
+ "torch": "2.7.1+cu126",
+ "cuda_available": true,
+ "cuda_device_count": 1,
+ "gpu": "NVIDIA A100-SXM4-40GB",
+ "CUDA_VISIBLE_DEVICES": "0",
+ "NVIDIA_TF32_OVERRIDE": "0",
+ "cudnn_allow_tf32": true,
+ "matmul_allow_tf32": false,
+ "setup_model": [
+  {
+   "args_device": "None",
+   "predictor_device": "cuda:0",
+   "param_device": "cuda:0",
+   "fp16": false
+  }
+ ],
+ "forward_calls": 401,
+ "forward_input_devices": {
+  "cuda:0": 401
+ },
+ "forward_param_devices": {
+  "cuda:0": 401
+ },
+ "max_memory_allocated_mb": 398.50244140625
+}

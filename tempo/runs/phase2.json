@@ -1,0 +1,7 @@
+[
+  {"arm": "B0", "seed": 42},
+  {"arm": "B0", "seed": 43},
+  {"arm": "L", "beta": 2.0, "gamma": 2.0, "seed": 42},
+  {"arm": "L", "beta": 4.0, "gamma": 4.0, "seed": 42},
+  {"arm": "L", "beta": 2.0, "gamma": 2.0, "k_steps": 10, "seed": 42}
+]

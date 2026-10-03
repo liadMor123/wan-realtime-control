@@ -1,0 +1,169 @@
+{
+  "temporal_accuracy": [
+    0.6761904761904762,
+    [
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bird and a cat-0.mp4",
+        "video_results": 0.8095238095238095,
+        "success_frame_count": 17,
+        "frame_count": 21,
+        "static_object_success_rate": 0.6,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a horse and a sheep-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a sheep and a cow-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.9090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a cow and an elephant-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an elephant and a bear-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bear and a zebra-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a zebra and a giraffe-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a giraffe and a bird-0.mp4",
+        "video_results": 0.8095238095238095,
+        "success_frame_count": 17,
+        "frame_count": 21,
+        "static_object_success_rate": 0.6,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a chair and a couch-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a couch and a potted plant-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a tv and a laptop-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a book and a clock-0.mp4",
+        "video_results": 0.5714285714285714,
+        "success_frame_count": 12,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.2727272727272727
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a clock and a backpack-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a backpack and an umbrella-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an umbrella and a handbag-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a handbag and a tie-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a tie and a suitcase-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a suitcase and a vase-0.mp4",
+        "video_results": 0.8571428571428571,
+        "success_frame_count": 18,
+        "frame_count": 21,
+        "static_object_success_rate": 0.7,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a vase and scissors-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/scissors and a teddy bear-0.mp4",
+        "video_results": 1.0,
+        "success_frame_count": 21,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 1.0
+      }
+    ]
+  ],
+  "global_absent_object_success_rate": 0.68,
+  "global_present_object_success_rate": 0.6727272727272727
+}

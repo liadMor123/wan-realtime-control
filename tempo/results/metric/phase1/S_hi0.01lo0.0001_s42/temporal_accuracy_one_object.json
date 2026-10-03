@@ -1,0 +1,111 @@
+{
+  "temporal_accuracy": [
+    0.5875,
+    [
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the second second of the video, a person appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.9,
+        "success_frame_count": 18,
+        "frame_count": 20,
+        "object_absent_success_rate": 0.5,
+        "object_present_success_rate": 1.0,
+        "object_absent_successes": 2,
+        "object_present_successes": 16,
+        "absent_frames": 4,
+        "present_frames": 16
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the second second of the video, a bicycle appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.2,
+        "success_frame_count": 4,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 4,
+        "object_present_successes": 0,
+        "absent_frames": 4,
+        "present_frames": 16
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the third second of the video, a elephant appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.4,
+        "success_frame_count": 8,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 8,
+        "object_present_successes": 0,
+        "absent_frames": 8,
+        "present_frames": 12
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the third second of the video, a bear appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.4,
+        "success_frame_count": 8,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 8,
+        "object_present_successes": 0,
+        "absent_frames": 8,
+        "present_frames": 12
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the fourth second of the video, a wine glass appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.6,
+        "success_frame_count": 12,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 12,
+        "object_present_successes": 0,
+        "absent_frames": 12,
+        "present_frames": 8
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the fourth second of the video, a cup appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.6,
+        "success_frame_count": 12,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 12,
+        "object_present_successes": 0,
+        "absent_frames": 12,
+        "present_frames": 8
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the last second of the video, a dining table appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.8,
+        "success_frame_count": 16,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 16,
+        "object_present_successes": 0,
+        "absent_frames": 16,
+        "present_frames": 4
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/S_hi0.01lo0.0001_s42/An empty scene. Suddenly, during the last second of the video, a toilet appears out of nowhere, drawing all attention.-0.mp4",
+        "video_results": 0.8,
+        "success_frame_count": 16,
+        "frame_count": 20,
+        "object_absent_success_rate": 1.0,
+        "object_present_success_rate": 0.0,
+        "object_absent_successes": 16,
+        "object_present_successes": 0,
+        "absent_frames": 16,
+        "present_frames": 4
+      }
+    ]
+  ],
+  "global_frame_metrics": {
+    "global_absent_object_success_rate": 0.975,
+    "global_present_object_success_rate": 0.2,
+    "total_absent_frames": 80,
+    "total_present_frames": 80,
+    "total_absent_successes": 78,
+    "total_present_successes": 16
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "job": "163093",
+ "prompt_id": 2,
+ "B0_s42": {
+  "mp4_bytes_equal": true,
+  "frames_equal": true,
+  "frames_maxabs": 0
+ },
+ "L_b2g2_s42": {
+  "mp4_bytes_equal": true,
+  "frames_equal": true,
+  "frames_maxabs": 0
+ }
+}

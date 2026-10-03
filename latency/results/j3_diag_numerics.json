@@ -1,0 +1,15 @@
+{
+  "denoised_pred": {
+    "max_abs": 0.234375,
+    "mean_abs": 0.015502162277698517,
+    "rel_max": 0.06666666666666667,
+    "allclose_1e-2": false
+  },
+  "kv_cache_block0_k": {
+    "max_abs": 0.09375,
+    "mean_abs": 0.0018878851551562548,
+    "rel_max": 0.011194029850746268,
+    "allclose_1e-2": false
+  },
+  "verdict": "DIVERGES ON FIRST PASS"
+}

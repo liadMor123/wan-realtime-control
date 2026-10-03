@@ -1,0 +1,16 @@
+{
+  "mode": "manual_graph",
+  "torch": "2.7.1+cu126",
+  "triton": "3.3.1",
+  "flash_attn": "2.8.3.post1",
+  "capture": {
+    "status": "FAILED",
+    "error_type": "RuntimeError",
+    "error": "CUDA error: operation failed due to a previous error during capture\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+    "traceback_tail": "epo/j3_run.py\", line 313, in main\n    w = one_video(prompts[0], 999, capture_pass=(args.mode == \"manual_graph\"))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/scratch/tmp/32433/job_147677/run/repo/j3_run.py\", line 290, in one_video\n    video, latents = pipe.inference(noise=noise, text_prompts=[prompt],\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/scratch/tmp/32433/job_147677/run/repo/pipeline/causal_inference.py\", line 197, in inference\n    _, denoised_pred = self.generator(\n                       ^^^^^^^^^^^^^^^\n  File \"/home/USER/proj/venv/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/USER/proj/venv/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/scratch/tmp/32433/job_147677/run/repo/j3_run.py\", line 215, in fwd\n    out = run_graphed(pos, idx, kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/scratch/tmp/32433/job_147677/run/repo/j3_run.py\", line 267, in run_graphed\n    return capture(pos, idx, kw)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/scratch/tmp/32433/job_147677/run/repo/j3_run.py\", line 254, in capture\n    with ctx:\n  File \"/home/USER/proj/venv/lib/python3.11/site-packages/torch/cuda/graphs.py\", line 186, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/home/USER/proj/venv/lib/python3.11/site-packages/torch/cuda/graphs.py\", line 84, in capture_end\n    super().capture_end()\nRuntimeError: CUDA error: operation failed due to a previous error during capture\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+  },
+  "notes": [
+    "sinusoidal_embedding_1d: cached device freq vector (was CPU arange + H2D per call)",
+    "kv_cache global/local_end_index: host-side shim (was .item() D2H sync)"
+  ]
+}

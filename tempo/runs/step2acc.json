@@ -1,0 +1,4 @@
+[
+  {"arm": "B0", "seed": 42, "path": "flash"},
+  {"arm": "L", "beta": 2.0, "gamma": 2.0, "seed": 42, "path": "fa2kv"}
+]

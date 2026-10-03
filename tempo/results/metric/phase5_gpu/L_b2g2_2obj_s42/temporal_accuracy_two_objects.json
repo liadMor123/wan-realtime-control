@@ -1,0 +1,665 @@
+{
+  "temporal_accuracy": [
+    0.47212543554006964,
+    [
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bird and a cat-0.mp4",
+        "video_results": 0.8095238095238095,
+        "success_frame_count": 17,
+        "frame_count": 21,
+        "static_object_success_rate": 0.6,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a cat and a dog-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a dog and a horse-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a horse and a sheep-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a sheep and a cow-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.9090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a cow and an elephant-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an elephant and a bear-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bear and a zebra-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a zebra and a giraffe-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a giraffe and a bird-0.mp4",
+        "video_results": 0.8095238095238095,
+        "success_frame_count": 17,
+        "frame_count": 21,
+        "static_object_success_rate": 0.6,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a chair and a couch-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a couch and a potted plant-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a potted plant and a tv-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a tv and a laptop-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a laptop and a remote-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a remote and a keyboard-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a keyboard and a cell phone-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a cell phone and a book-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a book and a clock-0.mp4",
+        "video_results": 0.5714285714285714,
+        "success_frame_count": 12,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.2727272727272727
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a clock and a backpack-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a backpack and an umbrella-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an umbrella and a handbag-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a handbag and a tie-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a tie and a suitcase-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a suitcase and a vase-0.mp4",
+        "video_results": 0.8571428571428571,
+        "success_frame_count": 18,
+        "frame_count": 21,
+        "static_object_success_rate": 0.7,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a vase and scissors-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/scissors and a teddy bear-0.mp4",
+        "video_results": 1.0,
+        "success_frame_count": 21,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a teddy bear and a frisbee-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a frisbee and skis-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/skis and a snowboard-0.mp4",
+        "video_results": 0.6190476190476191,
+        "success_frame_count": 13,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.2727272727272727
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a snowboard and a sports ball-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a sports ball and a kite-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a kite and a baseball bat-0.mp4",
+        "video_results": 0.047619047619047616,
+        "success_frame_count": 1,
+        "frame_count": 21,
+        "static_object_success_rate": 0.1,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a baseball bat and a baseball glove-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a baseball glove and a skateboard-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a skateboard and a surfboard-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a surfboard and a tennis racket-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a tennis racket and a bottle-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bottle and a chair-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an airplane and a train-0.mp4",
+        "video_results": 0.5714285714285714,
+        "success_frame_count": 12,
+        "frame_count": 21,
+        "static_object_success_rate": 0.7,
+        "temp_object_success_rate": 0.45454545454545453
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a train and a boat-0.mp4",
+        "video_results": 0.6190476190476191,
+        "success_frame_count": 13,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.2727272727272727
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a boat and an airplane-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bicycle and a car-0.mp4",
+        "video_results": 0.8571428571428571,
+        "success_frame_count": 18,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.8181818181818182
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a car and a motorcycle-0.mp4",
+        "video_results": 0.7142857142857143,
+        "success_frame_count": 15,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.45454545454545453
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a motorcycle and a bus-0.mp4",
+        "video_results": 0.2857142857142857,
+        "success_frame_count": 6,
+        "frame_count": 21,
+        "static_object_success_rate": 0.6,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bus and a traffic light-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.9090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a traffic light and a fire hydrant-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a fire hydrant and a stop sign-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a stop sign and a parking meter-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a parking meter and a truck-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.09090909090909091
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a truck and a bicycle-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a toilet and a hair drier-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a hair drier and a toothbrush-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a toothbrush and a sink-0.mp4",
+        "video_results": 0.6190476190476191,
+        "success_frame_count": 13,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.36363636363636365
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a sink and a toilet-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a wine glass and a chair-0.mp4",
+        "video_results": 0.9523809523809523,
+        "success_frame_count": 20,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a cup and a couch-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a fork and a potted plant-0.mp4",
+        "video_results": 0.7619047619047619,
+        "success_frame_count": 16,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.6363636363636364
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a knife and a tv-0.mp4",
+        "video_results": 0.38095238095238093,
+        "success_frame_count": 8,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a spoon and a laptop-0.mp4",
+        "video_results": 0.6190476190476191,
+        "success_frame_count": 13,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.2727272727272727
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bowl and a remote-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a banana and a keyboard-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an apple and a cell phone-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a sandwich and a book-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an orange and a clock-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/broccoli and a backpack-0.mp4",
+        "video_results": 0.8095238095238095,
+        "success_frame_count": 17,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.6363636363636364
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a carrot and an umbrella-0.mp4",
+        "video_results": 0.047619047619047616,
+        "success_frame_count": 1,
+        "frame_count": 21,
+        "static_object_success_rate": 0.1,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a hot dog and a handbag-0.mp4",
+        "video_results": 0.42857142857142855,
+        "success_frame_count": 9,
+        "frame_count": 21,
+        "static_object_success_rate": 0.9,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a pizza and a tie-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a donut and a suitcase-0.mp4",
+        "video_results": 0.9047619047619048,
+        "success_frame_count": 19,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a cake and a vase-0.mp4",
+        "video_results": 0.5238095238095238,
+        "success_frame_count": 11,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/an oven and scissors-0.mp4",
+        "video_results": 0.7619047619047619,
+        "success_frame_count": 16,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.5454545454545454
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a toaster and a teddy bear-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a microwave and a frisbee-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a refrigerator and skis-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a bicycle and an airplane-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a car and a train-0.mp4",
+        "video_results": 0.47619047619047616,
+        "success_frame_count": 10,
+        "frame_count": 21,
+        "static_object_success_rate": 1.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a motorcycle and a boat-0.mp4",
+        "video_results": 0.38095238095238093,
+        "success_frame_count": 8,
+        "frame_count": 21,
+        "static_object_success_rate": 0.8,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a person and a toilet-0.mp4",
+        "video_results": 0.23809523809523808,
+        "success_frame_count": 5,
+        "frame_count": 21,
+        "static_object_success_rate": 0.5,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a person and a hair drier-0.mp4",
+        "video_results": 0.0,
+        "success_frame_count": 0,
+        "frame_count": 21,
+        "static_object_success_rate": 0.0,
+        "temp_object_success_rate": 0.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a person and a toothbrush-0.mp4",
+        "video_results": 0.8571428571428571,
+        "success_frame_count": 18,
+        "frame_count": 21,
+        "static_object_success_rate": 0.7,
+        "temp_object_success_rate": 1.0
+      },
+      {
+        "video_path": "/home/USER/tempo/videos/L_b2g2_2obj_s42/a person and a sink-0.mp4",
+        "video_results": 0.8571428571428571,
+        "success_frame_count": 18,
+        "frame_count": 21,
+        "static_object_success_rate": 0.7,
+        "temp_object_success_rate": 1.0
+      }
+    ]
+  ],
+  "global_absent_object_success_rate": 0.6109756097560975,
+  "global_present_object_success_rate": 0.3458980044345898
+}

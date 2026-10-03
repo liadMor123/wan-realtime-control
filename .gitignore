@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.DS_Store
+venv/
+venv_metric/
+ext/
+cache/
+logs/
+videos/
+*.nsys-rep
+*.ncu-rep
+report/*.aux
+report/*.log
+report/*.out

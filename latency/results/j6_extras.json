@@ -1,0 +1,80 @@
+{
+  "gate_item6_triton_release_acquire": {
+    "triton_version": "3.3.1",
+    "atomic_add_has_sem": true,
+    "status": "PASS",
+    "trials": 20,
+    "programs": 108
+  },
+  "j4_prefix_stability": [
+    {
+      "position": 1,
+      "prefix_tokens": 4680,
+      "hash": "bdd7f5a0ce93f38e",
+      "matches_previous": true
+    },
+    {
+      "position": 2,
+      "prefix_tokens": 9360,
+      "hash": "e2eacf0dc3751366",
+      "matches_previous": true
+    },
+    {
+      "position": 3,
+      "prefix_tokens": 14040,
+      "hash": "befcc705b927c2c9",
+      "matches_previous": true
+    },
+    {
+      "position": 4,
+      "prefix_tokens": 18720,
+      "hash": "a87dd59bedbe36c8",
+      "matches_previous": true
+    },
+    {
+      "position": 5,
+      "prefix_tokens": 23400,
+      "hash": "ff9cd6efd8d04bf6",
+      "matches_previous": true
+    },
+    {
+      "position": 6,
+      "prefix_tokens": 28080,
+      "hash": "51b0d9929f89a04b",
+      "matches_previous": true
+    }
+  ],
+  "j4_prefix_all_stable": true,
+  "j4_dense_reference": [
+    {
+      "position": 0,
+      "k_len": 4680,
+      "heads_compared": 2,
+      "fa2_vs_fp32_max_abs": 0.016010284423828125,
+      "fa2_vs_fp32_mean_abs": 0.0013877606252208352,
+      "bf16_band_max_abs": 0.015752315521240234,
+      "bf16_band_mean_abs": 0.0013875835575163364,
+      "within_2x_band": true
+    },
+    {
+      "position": 3,
+      "k_len": 18720,
+      "heads_compared": 2,
+      "fa2_vs_fp32_max_abs": 0.01716899871826172,
+      "fa2_vs_fp32_mean_abs": 0.0015492270467802882,
+      "bf16_band_max_abs": 0.015993595123291016,
+      "bf16_band_mean_abs": 0.00154205784201622,
+      "within_2x_band": true
+    },
+    {
+      "position": 6,
+      "k_len": 32760,
+      "heads_compared": 2,
+      "fa2_vs_fp32_max_abs": 0.018428802490234375,
+      "fa2_vs_fp32_mean_abs": 0.0016102624358609319,
+      "bf16_band_max_abs": 0.016126632690429688,
+      "bf16_band_mean_abs": 0.0015828756149858236,
+      "within_2x_band": true
+    }
+  ]
+}
